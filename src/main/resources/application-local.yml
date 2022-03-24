@@ -1,0 +1,27 @@
+spring.batch.job.names: ${job.name:EMPTY}
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+
+jpa:
+  hibernate:
+    ddl-auto: create
+  properties:
+    hibernate:
+      format_sql: true #To beautify or pretty print the SQL
+      show_sql: true #show sql
+
+logging:
+  level:
+    org.hibernate:
+      type.descriptor.sql: trace #show parameter binding
+      SQL: DEBUG
